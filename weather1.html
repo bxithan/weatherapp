@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherGrow Weather</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='weather1.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>WeatherGrow</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/weather">Weather</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--จัดข้อความ-->
+    <div class="weather-container">
+        <h2>พิมพ์ชื่อเมืองเพื่อดูข้อมูลสภาพอากาศ</h2>
+        
+        <!--ค้นหา-->
+        <form action="/weather" method="POST">
+            <label for="city">พิมพ์ชื่อเมือง:</label>
+            <input type="text" id="city" name="city" placeholder="กรอกชื่อเมือง" required>
+            <button type="submit">ค้นหา</button>
+        </form>        
+
+        {% if error %}
+        <p class="error-message">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

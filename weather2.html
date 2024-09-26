@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherGrow Weather</title>
+    <link rel="stylesheet" href="static/weather2.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>WeatherGrow</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/weather">Weather</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--ชื่อจังหวัด-->
+     <section class="province">
+        <h2>ข้อมูลสภาพอากาศสำหรับจังหวัด : {{ city }}</h2>
+    </section>
+
+    <!--ตาราง-->
+    <section class="current-weather">
+        <h2>สภาพอากาศปัจจุบัน</h2>
+        <table class="weatherNow">
+            <tr>
+                <th>สภาพอากาศทั่วไป</th>
+                <th>ข้อมูล</th>
+            </tr>
+            <tr>
+                <td>อุณหภูมิ</td>
+                <td>{{ weather.temperature }} °C</td>
+            </tr>
+            <tr>
+                <td>ความชื้น</td>
+                <td>{{ weather.humidity }} %</td>
+            </tr>
+            <tr>
+                <td>ความดันอากาศ</td>
+                <td>{{ weather.pressure }} hPa</td>
+            </tr>
+            <tr>
+                <td>ความเร็วและทิศทางลม</td>
+                <td>{{ weather.wind_speed }} m/s, {{ weather.wind_direction }}°</td>
+            </tr>
+            <tr>
+                <td>ปริมาณน้ำฝนใน 1 ชั่วโมง</td>
+                <td>{{ weather.rain }} mm</td>
+            </tr>
+        </table>
+    </section>
+
+    <!--คำแนะนำการปลูกพืช-->
+    <section class="crop">
+        <h2>แนะนำการปลูกพืช</h2>
+        <p class="dataRecommend">{{ recommendation }}</p>
+    </section>
+</body>
+</html>
